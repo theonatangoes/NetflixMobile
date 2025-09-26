@@ -7,27 +7,39 @@ import {
   TouchableOpacity, 
   View,
   Dimensions,
-  StatusBar 
+  StatusBar,
+  ListRenderItemInfo
 } from "react-native";
-import { movieSections } from '../../data/movies';
+import { movieSections } from "../../data/movies";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
+
+// Tipos para TypeScript
+interface Movie {
+  id: string;
+  poster: any;
+}
+
+interface MovieSection {
+  title: string;
+  data: Movie[];
+}
 
 export default function MoviesScreen() {
-  const renderMovieItem = ({ item }) => (
+  const renderMovieItem = ({ item }: ListRenderItemInfo<Movie>) => (
     <TouchableOpacity style={styles.movieItem}>
       <Image source={item.poster} style={styles.poster} />
     </TouchableOpacity>
   );
 
-  const renderSection = ({ item: section }) => (
+  const renderSection = ({ item }: ListRenderItemInfo<MovieSection>) => (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>{section.title}</Text>
+      <Text style={styles.sectionTitle}>{item.title}</Text>
       <FlatList
         horizontal
-        data={section.data}
+        data={item.data}
         renderItem={renderMovieItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(movie) => movie.id}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.sectionList}
       />
@@ -61,23 +73,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 16,
     paddingTop: 50,
     paddingBottom: 16,
-    backgroundColor: 'rgba(0,0,0,0.9)',
-    position: 'absolute',
+    backgroundColor: "rgba(0,0,0,0.9)",
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     zIndex: 1000,
   },
   headerTitle: {
-    color: '#E50914',
+    color: "#E50914",
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   content: {
     paddingTop: 100, // Espaço para o header
@@ -86,9 +98,9 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   sectionTitle: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginLeft: 16,
     marginBottom: 12,
   },
@@ -102,6 +114,6 @@ const styles = StyleSheet.create({
     width: 120,
     height: 180,
     borderRadius: 4,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
 });

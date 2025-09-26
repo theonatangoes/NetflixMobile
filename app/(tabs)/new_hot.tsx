@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function NewHotScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Novidades em Breve</Text>
+      <Text style={styles.text}>New & Hot</Text>
     </View>
   );
 }

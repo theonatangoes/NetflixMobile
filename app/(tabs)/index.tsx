@@ -1,5 +1,3 @@
-// app/(tabs)/index.tsx
-
 import React from "react";
 import {
   Dimensions,
@@ -13,11 +11,11 @@ import {
   View,
 } from "react-native";
 
-// ⚠️ GARANTA QUE ESTES IMPORTS DE DADOS ESTÃO CORRETOS
+import { useRouter } from "expo-router";
+
 import { featuredMovie, homeMovies } from "../../data/homeMovies";
 import { movieSections } from "../../data/movies";
 
-// ✅ 1. IMPORTAÇÃO DAS IMAGENS (sem alterações aqui)
 import LogoNetflix from "../../assets/images/logonetflix2.png";
 import SearchIcon from "../../assets/images/lupa.png";
 import ProfileIcon from "../../assets/images/perfil azul escuro.png";
@@ -25,7 +23,6 @@ import PlayIcon from "../../assets/images/Polygon 1.png";
 
 const { width } = Dimensions.get("window");
 
-// Tipos para TypeScript
 interface Movie {
   id: string;
   poster: any;
@@ -36,14 +33,12 @@ interface MovieSection {
   data: Movie[];
 }
 
-// Componente que renderiza um único pôster
 const renderMovieItem = ({ item }: ListRenderItemInfo<Movie>) => (
   <TouchableOpacity style={styles.movieItem}>
     <Image source={item.poster} style={styles.poster} />
   </TouchableOpacity>
 );
 
-// Componente que renderiza uma seção completa de filmes
 const renderSection = (section: MovieSection) => (
   <View style={styles.section} key={section.title}>
     <Text style={styles.sectionTitle}>{section.title}</Text>
@@ -51,7 +46,7 @@ const renderSection = (section: MovieSection) => (
       horizontal
       data={section.data}
       renderItem={renderMovieItem}
-      keyExtractor={(movie) => movie.id}
+      keyExtractor={(item) => item.id}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.sectionList}
     />
@@ -59,25 +54,30 @@ const renderSection = (section: MovieSection) => (
 );
 
 export default function HomeScreen() {
+  // ✅ 2. INICIAR O HOOK DO ROUTER
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <ScrollView>
-        {/* O header foi MOVIDO para DENTRO do ScrollView */}
         <View style={styles.topBarContainer}>
-          {/* Linha da Logo e Ícones */}
           <View style={styles.header}>
-            <Image source={LogoNetflix} style={styles.logo} />
+            {/* Logo clicável para voltar à tela de Login (login.tsx) */}
+            <TouchableOpacity onPress={() => router.replace('/login')}>
+              <Image source={LogoNetflix} style={styles.logo} />
+            </TouchableOpacity>
+            
             <View style={styles.headerIcons}>
               <TouchableOpacity>
                 <Image source={SearchIcon} style={styles.icon} />
               </TouchableOpacity>
-              <TouchableOpacity>
+              {/* ✅ 3. ADICIONADO ONPRESS PARA A FOTO DE PERFIL */}
+              <TouchableOpacity onPress={() => router.replace('/profiles')}>
                 <Image source={ProfileIcon} style={styles.profileIcon} />
               </TouchableOpacity>
             </View>
           </View>
           
-          {/* Linha dos Links de Navegação */}
           <View style={styles.navLinksContainer}>
             <Text style={styles.navLinkText}>TV Show</Text>
             <Text style={styles.navLinkText}>Filmes</Text>
@@ -85,24 +85,20 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* HERO SECTION */}
         <View style={styles.hero}>
           <Image source={featuredMovie.poster} style={styles.heroImage} />
           <Text style={styles.heroDescription}>
             Comédia dramática encantado
           </Text>
           <View style={styles.heroButtons}>
-            {/* Botão Minha Lista */}
             <TouchableOpacity style={styles.myListButton}>
               <Text style={styles.myListIcon}>+</Text>
               <Text style={styles.myListText}>Minha Lista</Text>
             </TouchableOpacity>
-            {/* Botão Play */}
             <TouchableOpacity style={styles.playButton}>
               <Image source={PlayIcon} style={styles.playIcon} />
               <Text style={styles.playButtonText}>Play</Text>
             </TouchableOpacity>
-            {/* Botão Info */}
             <TouchableOpacity style={styles.infoButton}>
               <Text style={styles.infoIcon}>ⓘ</Text>
               <Text style={styles.infoText}>Info</Text>
@@ -110,7 +106,6 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* SEÇÕES DE FILMES */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Lançamentos do Ano</Text>
           <FlatList
@@ -131,9 +126,6 @@ export default function HomeScreen() {
   );
 }
 
-// -------------------------------------------------------------
-// STYLES
-// -------------------------------------------------------------
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -196,7 +188,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     maxWidth: "70%",
   },
-  // ✅ ALTERAÇÃO: Trocado 'space-around' por 'center' para agrupar os botões
   heroButtons: {
     flexDirection: "row",
     justifyContent: "center", 
@@ -232,7 +223,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
-  // ✅ ALTERAÇÃO: Adicionado marginHorizontal para espaçar o botão do meio
   playButton: {
     backgroundColor: "#fff",
     flexDirection: "row",
@@ -241,7 +231,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 25,
     borderRadius: 4,
-    marginHorizontal: 40, // Espaço entre o botão Play e os outros
+    marginHorizontal: 40, 
   },
   playIcon: {
     width: 12,

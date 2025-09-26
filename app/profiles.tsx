@@ -22,7 +22,6 @@ export default function ProfilesScreen() {
   const router = useRouter();
 
   const selectProfile = () => {
-  // ✅ Corrigido: não precisa "app/"
   router.replace("/(tabs)"); 
 };
 

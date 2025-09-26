@@ -1,6 +1,6 @@
 export const movieSections = [
   {
-    title: "Continue Watcning for Drashti",
+    title: "Continue assistindo Drashti",
     data: [
       { id: "7", poster: require("../assets/filmes/bheed.png") },
       { id: "8", poster: require("../assets/filmes/hangover.png") },
@@ -11,7 +11,7 @@ export const movieSections = [
     ]
   },
   {
-    title: "Suspenseful TV Shows",
+    title: "Programas de TV de Suspense",
     data: [
       { id: "13", poster: require("../assets/filmes/moneyheist.png") },
       { id: "14", poster: require("../assets/filmes/strangerthings.png") },
@@ -22,7 +22,7 @@ export const movieSections = [
     ]
   },
   {
-    title: "Select for You Today",
+    title: "Seleção para Você Hoje",
     data: [
       { id: "19", poster: require("../assets/filmes/bheed.png") },
       { id: "20", poster: require("../assets/filmes/moneyheist.png") },
@@ -32,8 +32,8 @@ export const movieSections = [
       { id: "24", poster: require("../assets/filmes/lupin.png") },
     ]
   },
-    {
-    title: "My List",
+  {
+    title: "Minha Lista",
     data: [
       { id: "25", poster: require("../assets/filmes/narcos.png") },
       { id: "26", poster: require("../assets/filmes/crash.png") },
@@ -43,8 +43,8 @@ export const movieSections = [
       { id: "30", poster: require("../assets/filmes/peakyblinders.png") },
     ]
   },
-    {
-    title: "New Releases",
+  {
+    title: "Novos Lançamentos",
     data: [
       { id: "31", poster: require("../assets/filmes/crash.png") },
       { id: "32", poster: require("../assets/filmes/redrose.png") },
@@ -54,8 +54,8 @@ export const movieSections = [
       { id: "36", poster: require("../assets/filmes/lupin.png") },
     ]
   },
-    {
-    title: "Ensemble TV Shows",
+  {
+    title: "Programas de TV em Conjunto",
     data: [
       { id: "37", poster: require("../assets/filmes/serie1889.png") },
       { id: "38", poster: require("../assets/filmes/moneyheist.png") },
@@ -66,7 +66,7 @@ export const movieSections = [
     ]
   },
     {
-    title: "Chilly Thrillers",
+    title: "Suspenses Arrepiantes",
     data: [
       { id: "43", poster: require("../assets/filmes/lupin.png") },
       { id: "44", poster: require("../assets/filmes/moneyheist.png") },
@@ -77,7 +77,7 @@ export const movieSections = [
     ]
   },
     {
-    title: "Only on Netflix",
+    title: "Somente na Netflix",
     data: [
       { id: "49", poster: require("../assets/filmes/serie1889.png") },
       { id: "50", poster: require("../assets/filmes/crash.png") },

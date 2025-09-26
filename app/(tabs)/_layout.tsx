@@ -1,53 +1,56 @@
-// app/(tabs)/_layout.tsx
-
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
-
-// DICA: Você precisará instalar o pacote de ícones, se ainda não tiver:
-// npx expo install @expo/vector-icons
 
 export default function TabLayout() {
   return (
     <Tabs 
       screenOptions={{
-        tabBarActiveTintColor: 'white', // Ícone e texto ativo
-        tabBarInactiveTintColor: 'gray', // Ícone e texto inativo
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          backgroundColor: 'black', // Fundo preto da TabBar
-          borderTopColor: 'transparent', // Remove a linha superior
+          backgroundColor: 'black',
+          borderTopColor: 'transparent',
           height: 60,
           paddingBottom: 5,
         },
-        headerShown: false, // Esconde o cabeçalho em todas as telas das Tabs
+        headerShown: false,
       }}
     >
-      {/* Configuração para a Home (index.tsx) */}
       <Tabs.Screen
-        name="index" // Corresponde ao app/(tabs)/index.tsx
+        name="index"
         options={{
-          title: 'Home',
+          title: 'Início',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" size={24} color={color} />
           ),
         }}
       />
 
-      {/* Exemplo de outras abas da Netflix - Você deve criar o arquivo .tsx correspondente */}
       <Tabs.Screen
-        name="new_hot" // Crie um arquivo app/(tabs)/new_hot.tsx
+        name="movies"
         options={{
-          title: 'New & Hot',
+          title: 'Filmes',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="movie-roll" size={24} color={color} />
+            <MaterialCommunityIcons name="movie" size={24} color={color} />
           ),
         }}
       />
-      
+
       <Tabs.Screen
-        name="search" // Crie um arquivo app/(tabs)/search.tsx
+        name="new_hot"
         options={{
-          title: 'Search',
+          title: 'Novidades',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="fire" size={24} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Buscar',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="magnify" size={24} color={color} />
           ),
@@ -55,11 +58,11 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="downloads" // Crie um arquivo app/(tabs)/downloads.tsx
+        name="downloads"
         options={{
           title: 'Downloads',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="arrow-down-circle" size={24} color={color} />
+            <MaterialCommunityIcons name="download" size={24} color={color} />
           ),
         }}
       />

@@ -22,9 +22,9 @@ export default function ProfilesScreen() {
   const router = useRouter();
 
   const selectProfile = () => {
-    // ✅ Agora navega para as tabs em vez de uma tela específica
-    router.replace("/(tabs)/movies"); 
-  };
+  // ✅ Corrigido: não precisa "app/"
+  router.replace("/(tabs)"); 
+};
 
   return (
     <View style={styles.container}>

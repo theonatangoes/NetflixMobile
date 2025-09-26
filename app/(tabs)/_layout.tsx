@@ -20,7 +20,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Início',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" size={24} color={color} />
           ),
@@ -30,7 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="movies"
         options={{
-          title: 'Movies',
+          title: 'Filmes',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="movie" size={24} color={color} />
           ),
@@ -40,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="new_hot"
         options={{
-          title: 'New & Hot',
+          title: 'Novidades',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="fire" size={24} color={color} />
           ),
@@ -50,7 +50,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: 'Search',
+          title: 'Pesquisar',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="magnify" size={24} color={color} />
           ),
@@ -60,7 +60,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="downloads"
         options={{
-          title: 'Downloads',
+          title: 'Baixados',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="download" size={24} color={color} />
           ),

@@ -28,24 +28,14 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="movies"
-        options={{
-          title: 'Filmes',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="movie" size={24} color={color} />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
         name="new_hot"
         options={{
           title: 'Novidades',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="fire" size={24} color={color} />
+            <MaterialCommunityIcons name="play-box-multiple" size={24} color={color} />
           ),
-        }}
-      />
+      }}
+    />
 
       <Tabs.Screen
         name="search"
@@ -62,7 +52,7 @@ export default function TabLayout() {
         options={{
           title: 'Baixados',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="download" size={24} color={color} />
+            <MaterialCommunityIcons name="arrow-down-circle-outline" size={24} color={color} />
           ),
         }}
       />

@@ -54,7 +54,6 @@ const renderSection = (section: MovieSection) => (
 );
 
 export default function HomeScreen() {
-  // ✅ 2. INICIAR O HOOK DO ROUTER
   const router = useRouter();
 
   return (
@@ -62,7 +61,6 @@ export default function HomeScreen() {
       <ScrollView>
         <View style={styles.topBarContainer}>
           <View style={styles.header}>
-            {/* Logo clicável para voltar à tela de Login (login.tsx) */}
             <TouchableOpacity onPress={() => router.replace('/login')}>
               <Image source={LogoNetflix} style={styles.logo} />
             </TouchableOpacity>
@@ -71,7 +69,6 @@ export default function HomeScreen() {
               <TouchableOpacity>
                 <Image source={SearchIcon} style={styles.icon} />
               </TouchableOpacity>
-              {/* ✅ 3. ADICIONADO ONPRESS PARA A FOTO DE PERFIL */}
               <TouchableOpacity onPress={() => router.replace('/profiles')}>
                 <Image source={ProfileIcon} style={styles.profileIcon} />
               </TouchableOpacity>

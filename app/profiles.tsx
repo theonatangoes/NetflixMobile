@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import LogoImage from "../assets/images/n1 1.png";
 import Profile2 from "../assets/images/perfil amarelo.png";
@@ -13,7 +14,7 @@ const profiles = [
   { name: "Theo", image: Profile1 },
   { name: "Cauã", image: Profile2 },
   { name: "Vitório", image: Profile3 }, 
-  { name: "Messi", image: Profile4 },  
+  { name: "Caetano", image: Profile4 },  
   { name: "Cristiano", image: Profile5 },
   { name: "", image: null },
 ];
@@ -22,8 +23,12 @@ export default function ProfilesScreen() {
   const router = useRouter();
 
   const selectProfile = () => {
-  router.replace("/(tabs)"); 
-};
+    router.replace("/(tabs)"); 
+  };
+
+  const editProfiles = () => {
+    console.log("Editar perfis");
+  };
 
   return (
     <View style={styles.container}>
@@ -32,7 +37,11 @@ export default function ProfilesScreen() {
         style={styles.logoImage}
       />
 
-      <Text style={styles.title}>Quem está assistindo?</Text> 
+      <TouchableOpacity style={styles.editButton} onPress={editProfiles}>
+        <MaterialIcons name="edit" size={20} color="#fff" />
+      </TouchableOpacity>
+
+    <Text style={styles.title}>Quem está assistindo?</Text> 
 
       <ScrollView contentContainerStyle={styles.grid}>
         {profiles.map((p, index) => (
@@ -42,10 +51,12 @@ export default function ProfilesScreen() {
             onPress={p.image ? selectProfile : undefined}
             disabled={!p.image}
           >
-            {p.image && <Image 
-              source={p.image} 
-              style={styles.profileImage}
-            />}
+            {p.image && (
+              <Image 
+                source={p.image} 
+                style={styles.profileImage}
+              />
+            )}
             <Text style={styles.name}>{p.name}</Text>
           </TouchableOpacity>
         ))}
@@ -63,14 +74,19 @@ const styles = StyleSheet.create({
     paddingTop: 80,
   },
   logoImage: { 
-    width: 150, 
-    height: 50, 
+    width: 500, 
+    height: 50,
     resizeMode: 'contain', 
-    marginBottom: 40,
+    marginBottom: 50,
+  },
+  editButton: {
+    position: "absolute",
+    top: 95,
+    right: 20,
   },
   title: { 
     color: "#fff", 
-    fontSize: 22, 
+    fontSize: 20, 
     marginBottom: 40, 
     textAlign: 'center' 
   },

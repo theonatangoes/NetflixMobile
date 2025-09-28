@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     justifyContent: "center" 
   },
   
-  
   headerContainer: {
     position: 'absolute', 
     top: 0,

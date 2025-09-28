@@ -1,12 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function NewHotScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Novidades</Text>
-    </View>
-  );
+  return <View style={styles.container}></View>;
 }
 
 const styles = StyleSheet.create({

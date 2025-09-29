@@ -56,25 +56,29 @@ const renderSection = (section: MovieSection) => (
 export default function HomeScreen() {
   const router = useRouter();
 
+  const handleLogin = () => {
+    router.replace("/login");
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.topBarContainer}>
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => router.replace('/login')}>
+            <TouchableOpacity onPress={handleLogin}>
               <Image source={LogoNetflix} style={styles.logo} />
             </TouchableOpacity>
-            
+
             <View style={styles.headerIcons}>
               <TouchableOpacity>
                 <Image source={SearchIcon} style={styles.icon} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => router.replace('/profiles')}>
+              <TouchableOpacity onPress={() => router.replace("/profiles")}>
                 <Image source={ProfileIcon} style={styles.profileIcon} />
               </TouchableOpacity>
             </View>
           </View>
-          
+
           <View style={styles.navLinksContainer}>
             <Text style={styles.navLinkText}>TV Show</Text>
             <Text style={styles.navLinkText}>Filmes</Text>
@@ -114,9 +118,9 @@ export default function HomeScreen() {
             contentContainerStyle={styles.sectionList}
           />
         </View>
-        
+
         {movieSections.map(renderSection)}
-        
+
         <View style={{ height: 30 }} />
       </ScrollView>
     </View>
@@ -160,13 +164,13 @@ const styles = StyleSheet.create({
   },
   navLinksContainer: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     paddingVertical: 15,
   },
+  // Texto: TV Show, Filmes, Categorias
   navLinkText: {
     color: "#fff",
-    fontSize: 16,
-    marginHorizontal: 15,
+    fontSize: 18,
   },
   hero: {
     width: "100%",
@@ -178,23 +182,24 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     borderRadius: 8,
   },
+  // Texto: Comédia dramática encantado
   heroDescription: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 20,
     textAlign: "center",
     marginTop: 15,
     maxWidth: "70%",
   },
   heroButtons: {
     flexDirection: "row",
-    justifyContent: "center", 
+    justifyContent: "center",
     alignItems: "center",
     width: "100%",
     marginTop: 15,
   },
   myListButton: {
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   myListIcon: {
     color: "#fff",
@@ -208,7 +213,7 @@ const styles = StyleSheet.create({
   },
   infoButton: {
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   infoIcon: {
     color: "#fff",
@@ -220,20 +225,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
+  // Botão: Play
   playButton: {
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingVertical: 10,
     paddingHorizontal: 25,
     borderRadius: 4,
-    marginHorizontal: 40, 
+    marginHorizontal: 40,
   },
   playIcon: {
     width: 12,
     height: 12,
-    resizeMode: 'contain',
+    resizeMode: "contain",
     marginRight: 8,
   },
   playButtonText: {

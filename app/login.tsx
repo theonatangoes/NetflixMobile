@@ -30,17 +30,19 @@ export default function LoginScreen() {
         <Image source={LogoImage} style={styles.headerLogoImage} />
       </View>
 
-      <TextInput
-        placeholder="Email ou telefone"
-        placeholderTextColor="#aaa"
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Senha"
-        placeholderTextColor="#aaa"
-        secureTextEntry
-        style={styles.input}
-      />
+      <View style={styles.inputWrapper}>
+        <Text style={styles.label}>Email ou telefone</Text>
+        <TextInput style={styles.input} placeholderTextColor="#aaa" />
+      </View>
+
+      <View style={styles.inputWrapper}>
+        <Text style={styles.label}>Senha</Text>
+        <TextInput
+          style={styles.input}
+          secureTextEntry
+          placeholderTextColor="#aaa"
+        />
+      </View>
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Entrar</Text>
@@ -57,10 +59,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#000",
     paddingHorizontal: 20,
-    paddingTop: 100,
     justifyContent: "center",
   },
-
   headerContainer: {
     position: "absolute",
     top: 0,
@@ -71,27 +71,46 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 50,
   },
-
+  // Logo e Seta
   backButton: {
-    marginRight: 20,
+    marginRight: 10,
+    height: 50,
+    justifyContent: "center",
   },
   backArrow: {
     color: "white",
     fontSize: 24,
     fontWeight: "bold",
   },
-
+  //Logo Netflix
   headerLogoImage: {
-    width: 120,
-    height: 40,
+    width: 150,
+    height: 50,
     resizeMode: "contain",
+  },
+  inputWrapper: {
+    width: "100%",
+    marginBottom: 16,
+    position: "relative",
+    justifyContent: "center",
+  },
+  label: {
+    position: "absolute",
+    top: 10,
+    left: 15,
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    zIndex: 1,
   },
   input: {
     backgroundColor: "#333",
-    padding: 12,
-    borderRadius: 6,
+    borderRadius: 10,
     color: "#fff",
-    marginBottom: 12,
+    fontSize: 16,
+    height: 65,
+    paddingHorizontal: 15,
+    paddingTop: 30,
   },
   button: {
     backgroundColor: "black",
@@ -100,6 +119,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "white",
+    marginTop: 20,
   },
   buttonText: {
     color: "#fff",

@@ -167,7 +167,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     paddingVertical: 15,
   },
-  // Texto: TV Show, Filmes, Categorias
   navLinkText: {
     color: "#fff",
     fontSize: 18,
@@ -182,7 +181,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     borderRadius: 8,
   },
-  // Texto: Comédia dramática encantado
+
   heroDescription: {
     color: "#fff",
     fontSize: 20,
@@ -225,7 +224,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
-  // Botão: Play
   playButton: {
     backgroundColor: "#fff",
     flexDirection: "row",

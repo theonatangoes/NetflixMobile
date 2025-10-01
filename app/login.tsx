@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 50,
   },
-  // Logo e Seta
   backButton: {
     marginRight: 10,
     height: 50,
@@ -82,7 +81,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
   },
-  //Logo Netflix
   headerLogoImage: {
     width: 150,
     height: 50,

@@ -48,8 +48,15 @@ export default function LoginScreen() {
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-      <Text style={styles.link}>Precisa de ajuda?</Text>
-      <Text style={styles.link}>Novo por aqui? Assine agora.</Text>
+      <View style={styles.footer}>
+        <Text style={styles.link}>Precisa de ajuda?</Text>
+        <Text style={styles.link}>Novo por aqui? Assine agora.</Text>
+        <Text style={styles.recaptchaText}>
+          O login é protegido pelo Google reCAPTCHA para{"\n"}
+          garantir que você não é um bot.{"\n"}
+          Saiba mais.
+        </Text>
+      </View>
     </View>
   );
 }
@@ -111,7 +118,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   button: {
-    backgroundColor: "black",
+    backgroundColor: "#0F1010", 
     padding: 15,
     borderRadius: 6,
     alignItems: "center",
@@ -124,9 +131,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+  footer: {
+    marginTop: 40,
+    alignItems: "center",
+  },
   link: {
     color: "#aaa",
-    marginTop: 16,
+    marginTop: 10,
     textAlign: "center",
+    fontWeight: "bold",
+  },
+  recaptchaText: {
+    color: "#8c8c8c",
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 13,
+    alignSelf: "center",
+    lineHeight: 20,
   },
 });

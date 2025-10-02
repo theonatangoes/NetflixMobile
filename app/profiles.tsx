@@ -16,15 +16,6 @@ import Profile1 from "../assets/images/perfil azul escuro.png";
 import Profile3 from "../assets/images/perfil verde.png";
 import Profile4 from "../assets/images/perfil vermelho.png";
 
-const profiles = [
-  { name: "Theo", image: Profile1 },
-  { name: "Cauã", image: Profile2 },
-  { name: "Vitório", image: Profile3 },
-  { name: "Caetano", image: Profile4 },
-  { name: "Cristiano", image: Profile5 },
-  { name: "", image: null },
-];
-
 export default function ProfilesScreen() {
   const router = useRouter();
 
@@ -36,18 +27,49 @@ export default function ProfilesScreen() {
     <View style={styles.container}>
       <Image source={LogoImage} style={styles.logoImage} />
       <Text style={styles.title}>Quem está assistindo?</Text>
+
       <ScrollView contentContainerStyle={styles.grid}>
-        {profiles.map((p, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.profileContainer}
-            onPress={p.image ? selectProfile : undefined}
-            disabled={!p.image}
-          >
-            {p.image && <Image source={p.image} style={styles.profileImage} />}
-            {p.name !== "" && <Text style={styles.name}>{p.name}</Text>}
-          </TouchableOpacity>
-        ))}
+        <TouchableOpacity
+          style={styles.profileContainer}
+          onPress={selectProfile}
+        >
+          <Image source={Profile1} style={styles.profileImage} />
+          <Text style={styles.name}>Theo</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.profileContainer}
+          onPress={selectProfile}
+        >
+          <Image source={Profile2} style={styles.profileImage} />
+          <Text style={styles.name}>Cauã</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.profileContainer}
+          onPress={selectProfile}
+        >
+          <Image source={Profile3} style={styles.profileImage} />
+          <Text style={styles.name}>Vitório</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.profileContainer}
+          onPress={selectProfile}
+        >
+          <Image source={Profile4} style={styles.profileImage} />
+          <Text style={styles.name}>Caetano</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.profileContainer}
+          onPress={selectProfile}
+        >
+          <Image source={Profile5} style={styles.profileImage} />
+          <Text style={styles.name}>Cristiano</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.profileContainer} disabled />
       </ScrollView>
     </View>
   );

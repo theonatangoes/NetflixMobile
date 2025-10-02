@@ -9,7 +9,6 @@ import {
   View,
 } from "react-native";
 
-// Importações das imagens
 import LogoImage from "../assets/images/n1 1.png";
 import Profile2 from "../assets/images/perfil amarelo.png";
 import Profile5 from "../assets/images/perfil azul claro.png";

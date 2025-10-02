@@ -26,7 +26,6 @@ export default function LoginScreen() {
         >
           <Text style={styles.backArrow}>←</Text>
         </TouchableOpacity>
-
         <Image source={LogoImage} style={styles.headerLogoImage} />
       </View>
 

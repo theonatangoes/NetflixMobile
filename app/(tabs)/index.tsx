@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import {
   Dimensions,
@@ -10,8 +11,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
-import { useRouter } from "expo-router";
 
 import { featuredMovie, homeMovies } from "../../data/homeMovies";
 import { movieSections } from "../../data/movies";
@@ -91,15 +90,18 @@ export default function HomeScreen() {
           <Text style={styles.heroDescription}>
             Comédia dramática encantado
           </Text>
+
           <View style={styles.heroButtons}>
             <TouchableOpacity style={styles.myListButton}>
               <Text style={styles.myListIcon}>+</Text>
               <Text style={styles.myListText}>Minha Lista</Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.playButton}>
               <Image source={PlayIcon} style={styles.playIcon} />
               <Text style={styles.playButtonText}>Play</Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.infoButton}>
               <Text style={styles.infoIcon}>ⓘ</Text>
               <Text style={styles.infoText}>Info</Text>
@@ -181,7 +183,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     borderRadius: 8,
   },
-
   heroDescription: {
     color: "#fff",
     fontSize: 20,

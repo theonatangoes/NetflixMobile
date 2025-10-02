@@ -1,4 +1,3 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
@@ -10,6 +9,7 @@ import {
   View,
 } from "react-native";
 
+// Importações das imagens
 import LogoImage from "../assets/images/n1 1.png";
 import Profile2 from "../assets/images/perfil amarelo.png";
 import Profile5 from "../assets/images/perfil azul claro.png";
@@ -33,20 +33,10 @@ export default function ProfilesScreen() {
     router.replace("/(tabs)");
   };
 
-  const editProfiles = () => {
-    console.log("Editar perfis");
-  };
-
   return (
     <View style={styles.container}>
       <Image source={LogoImage} style={styles.logoImage} />
-
-      <TouchableOpacity style={styles.editButton} onPress={editProfiles}>
-        <MaterialIcons name="edit" size={20} color="#fff" />
-      </TouchableOpacity>
-
       <Text style={styles.title}>Quem está assistindo?</Text>
-
       <ScrollView contentContainerStyle={styles.grid}>
         {profiles.map((p, index) => (
           <TouchableOpacity
@@ -56,7 +46,7 @@ export default function ProfilesScreen() {
             disabled={!p.image}
           >
             {p.image && <Image source={p.image} style={styles.profileImage} />}
-            <Text style={styles.name}>{p.name}</Text>
+            {p.name !== "" && <Text style={styles.name}>{p.name}</Text>}
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -73,15 +63,10 @@ const styles = StyleSheet.create({
     paddingTop: 80,
   },
   logoImage: {
-    width: 500,
+    width: "80%",
     height: 50,
     resizeMode: "contain",
     marginBottom: 50,
-  },
-  editButton: {
-    position: "absolute",
-    top: 95,
-    right: 20,
   },
   title: {
     color: "#fff",

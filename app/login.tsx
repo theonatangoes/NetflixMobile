@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   input: {
-    backgroundColor: "#333",
+    backgroundColor: "#656060",
     borderRadius: 10,
     color: "#fff",
     fontSize: 16,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   button: {
-    backgroundColor: "#0F1010", 
+    backgroundColor: "#0F1010",
     padding: 15,
     borderRadius: 6,
     alignItems: "center",
